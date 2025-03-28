@@ -8,6 +8,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false); // New state to track if a search has been made
 
   const API_KEY = "9bd74b1f"; // Replace with your OMDb API key
 
@@ -16,12 +17,13 @@ function App() {
     if (!searchTerm) return;
 
     setLoading(true);
+    setHasSearched(true); // Set to true when a search is made
     try {
       const response = await fetch(
-        `https://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`
+        `http://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`
       );
       const data = await response.json();
-
+      console.log("API Response:", data); // Debug
       if (data.Response === "True") {
         setMovies(data.Search);
         setSelectedMovie(null);
@@ -38,7 +40,7 @@ function App() {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`
+        `http://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`
       );
       const data = await response.json();
       setSelectedMovie(data);
@@ -71,7 +73,11 @@ function App() {
           onBack={() => setSelectedMovie(null)}
         />
       ) : (
-        <MovieList movies={movies} onMovieSelect={getMovieDetails} />
+        <MovieList
+          movies={movies}
+          onMovieSelect={getMovieDetails}
+          hasSearched={hasSearched}
+        />
       )}
     </div>
   );
