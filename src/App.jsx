@@ -20,7 +20,7 @@ function App() {
     setHasSearched(true); // Set to true when a search is made
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`
+        `https://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`
       );
       const data = await response.json();
       console.log("API Response:", data); // Debug
@@ -40,7 +40,7 @@ function App() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`
+        `https://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`
       );
       const data = await response.json();
       setSelectedMovie(data);
