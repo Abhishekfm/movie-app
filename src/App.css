@@ -34,14 +34,14 @@ button:hover {
   background-color: #0056b3;
 }
 
-.movie-list .empty {
-  display: block;
-  align-items: center;
-}
 .movie-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  justify-content: center; /* Add this to center the grid */
+}
+.empty {
+  text-align: center; /* Ensure "No movies found" is centered */
 }
 
 .movie-card {

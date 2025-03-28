@@ -38,7 +38,7 @@ function App() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`
+        `https://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`
       );
       const data = await response.json();
       setSelectedMovie(data);
