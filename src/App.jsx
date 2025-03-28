@@ -18,7 +18,7 @@ function App() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`
+        `https://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`
       );
       const data = await response.json();
 
