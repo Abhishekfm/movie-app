@@ -9,7 +9,7 @@ function MovieDetails({ movie, onBack }) {
           src={
             movie.Poster !== "N/A"
               ? movie.Poster
-              : "https://via.placeholder.com/300"
+              : "https://dummyimage.com/1280x720/fff/aaa"
           }
           alt={movie.Title}
         />

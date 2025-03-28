@@ -15,7 +15,7 @@ function MovieList({ movies, onMovieSelect, hasSearched }) {
               src={
                 movie.Poster !== "N/A"
                   ? movie.Poster
-                  : "https://via.placeholder.com/150"
+                  : "https://dummyimage.com/1280x720/fff/aaa"
               }
               alt={movie.Title || "Movie Poster"}
             />
